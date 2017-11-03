@@ -39,10 +39,18 @@ RSpec.describe AddressBook do
    
   describe "#remove_entry" do
     it "removes only the entry passed" do
-        entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-        entry.delete('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+        book = AddressBook.new
+        book.add_entry('Michael Faraday', '010.210.5181', 'michael.faraday@faraday.com')
         
-        expect(entry).to eq(nil)
+        name = "Ada Lovelace"
+        phone_number = "010.012.1815"
+        email_address = "augusta.king@lovelace.com"
+        book.add_entry(name, phone_number, email_address)
+        
+        expect(book.entries.size).to eq 2
+        book.remove_entry(name, phone_number, email_address)
+        expect(book.entries.size).to eq 1
+        expect(book.entries.first.name).to eq('Michael Faraday')
     end
   end
 end
