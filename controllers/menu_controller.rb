@@ -15,7 +15,7 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - View Entry Number n"
+     puts "5 - View Entry N"
      puts "6 - Exit"
      print "Enter your selection: "
  
@@ -42,7 +42,7 @@
          main_menu
        when 5
          system "clear"
-         find_by_number
+         entry_n_submenu
          main_menu
        when 6
          puts "Good-bye!"
@@ -56,19 +56,21 @@
      end
    end
    
-   def find_by_number
-     system "clear"
-     puts "Display Entry Number"
-     print "Number: "
-     number = gets.chomp
-     puts "address_book.entries #{number}"
+   # #10  stub the rest of the methods called in main_menu
+   def entry_n_submenu
+     print "Entry Number to view:"
+     selection = gets.chomp.to_i
+     
+     if selection < @address_book.entries.count
+      puts "Press enter to return to the main menu"
+      gets.chomp
+      system "clear"
      else
-         system "clear"
-         puts "#{selection} is not a valid input"
-         entry_submenu(entry)
+      puts "#{selection} is not a valid input"
+      entry_n_submenu
+     end
    end
    
-   # #10  stub the rest of the methods called in main_menu
    def view_all_entries
      # #14 iterate through all entries in AddressBook using each.
      address_book.entries.each do |entry|
