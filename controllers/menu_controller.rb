@@ -15,7 +15,8 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - View Entry Number n"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      # #3  retrieve user input from the command line using  gets. gets reads the next line from standard input.
@@ -40,6 +41,10 @@
          read_csv
          main_menu
        when 5
+         system "clear"
+         find_by_number
+         main_menu
+       when 6
          puts "Good-bye!"
          # #8 terminate the program using exit(0). 0 signals the program is exiting without an error
          exit(0)
@@ -50,7 +55,19 @@
          main_menu
      end
    end
- 
+   
+   def find_by_number
+     system "clear"
+     puts "Display Entry Number"
+     print "Number: "
+     number = gets.chomp
+     puts "address_book.entries #{number}"
+     else
+         system "clear"
+         puts "#{selection} is not a valid input"
+         entry_submenu(entry)
+   end
+   
    # #10  stub the rest of the methods called in main_menu
    def view_all_entries
      # #14 iterate through all entries in AddressBook using each.
