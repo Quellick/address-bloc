@@ -109,7 +109,7 @@ RSpec.describe AddressBook do
        book_size = book.entries.size
        
         # Check the size of the entries in AddressBook
-       expect(book_size2).to eq 5
+       expect(book_size).to eq 3
      end
        
      # #4 we access the first entry in the array of entries that our AddressBook stores.
