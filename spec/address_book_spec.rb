@@ -48,17 +48,21 @@ RSpec.describe AddressBook do
        expect(new_entry.phone_number).to eq('010.012.1815')
        expect(new_entry.email).to eq('augusta.king@lovelace.com')
      end
-   end
+  end
    
     # Test that AddressBook's .import_from_csv() method is working as expected
-   describe "#import_from_csv" do
+  describe "#import_from_csv" do
      it "imports the correct number of entries" do
        # #3 after the describe and it statements, we call the import_from_csv method on the book object which is of type AddressBook (our data model). We pass  import_from_csv the string entries.csv as a parameter. CSV files are a fairly typical way of dealing with data and you can read more about them here. 
        # #  On the next line we reference the AddressBook. entries variable to get its size. This variable will be an array. Next, we save the size of the AddressBook.entries to our local variable  book_size.
        book.import_from_csv("entries.csv")
        book_size = book.entries.size
        
-       # #4 we access the first entry in the array of entries that our AddressBook stores.
+        # Check the size of the entries in AddressBook
+       expect(book_size).to eq 5
+     end
+       
+     # #4 we access the first entry in the array of entries that our AddressBook stores.
      it "imports the 1st entry" do
        book.import_from_csv("entries.csv")
        # Check the first entry
@@ -95,11 +99,6 @@ RSpec.describe AddressBook do
        entry_five = book.entries[4]
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
-   end
+  end
+end
  
-       # Check the size of the entries in AddressBook
-       expect(book_size).to eq 5
-     end
- 
-   end
- end
