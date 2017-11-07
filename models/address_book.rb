@@ -1,5 +1,6 @@
 # #8 we tell Ruby to load the library named entry.rb relative to address_book.rb's file path using require_relative.
 require_relative 'entry'
+require "csv"
 
 class AddressBook
     attr_reader :entries
@@ -19,5 +20,9 @@ class AddressBook
     end
      # #11 we insert a new entry into entries using the calculated `index.
      entries.insert(index, Entry.new(name, phone_number, email))
-   end
- end
+    end
+    
+    def import_from_csv(file_name)
+       
+    end
+end
