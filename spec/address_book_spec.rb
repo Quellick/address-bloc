@@ -100,5 +100,41 @@ RSpec.describe AddressBook do
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
   end
+  
+  describe "#import_from_csv2" do
+     it "imports the correct number of entries" do
+       # #3 after the describe and it statements, we call the import_from_csv method on the book object which is of type AddressBook (our data model). We pass  import_from_csv the string entries.csv as a parameter. CSV files are a fairly typical way of dealing with data and you can read more about them here. 
+       # #  On the next line we reference the AddressBook. entries variable to get its size. This variable will be an array. Next, we save the size of the AddressBook.entries to our local variable  book_size.
+       book.import_from_csv("entries2.csv")
+       book_size = book.entries.size
+       
+        # Check the size of the entries in AddressBook
+       expect(book_size2).to eq 5
+     end
+       
+     # #4 we access the first entry in the array of entries that our AddressBook stores.
+     it "imports the 1st entry" do
+       book.import_from_csv("entries2.csv")
+       # Check the first entry
+       entry_one = book.entries[0]
+ 
+       # #5 we've added three expects to verify that the first entry has the name "Bill", the phone number "555-555-4854", and the email address "bill@blocmail.com".
+       check_entry(entry_one, "Tucker", "541-390-5325", "tucker@blocmail.com")
+     end
+     
+     it "imports the 2nd entry" do
+       book.import_from_csv("entries2.csv")
+       # Check the second entry
+       entry_two = book.entries[1]
+       check_entry(entry_two, "Sara", "555-555-5415", "sara@blocmail.com")
+     end
+ 
+     it "imports the 3rd entry" do
+       book.import_from_csv("entries2.csv")
+       # Check the third entry
+       entry_three = book.entries[2]
+       check_entry(entry_three, "Tonya", "555-555-3660", "tonya@blocmail.com")
+     end
+  end
 end
  
