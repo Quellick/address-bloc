@@ -117,23 +117,22 @@ RSpec.describe AddressBook do
        book.import_from_csv("entries2.csv")
        # Check the first entry
        entry_one = book.entries[0]
- 
        # #5 we've added three expects to verify that the first entry has the name "Bill", the phone number "555-555-4854", and the email address "bill@blocmail.com".
-       check_entry(entry_one, "Tucker", "541-390-5325", "tucker@blocmail.com")
+       check_entry(entry_one, "Sara", "555-555-5415", "sara@blocmail.com")
      end
      
      it "imports the 2nd entry" do
        book.import_from_csv("entries2.csv")
        # Check the second entry
        entry_two = book.entries[1]
-       check_entry(entry_two, "Sara", "555-555-5415", "sara@blocmail.com")
+       check_entry(entry_two, "Tonya", "555-555-3660", "tonya@blocmail.com")
      end
  
      it "imports the 3rd entry" do
        book.import_from_csv("entries2.csv")
        # Check the third entry
        entry_three = book.entries[2]
-       check_entry(entry_three, "Tonya", "555-555-3660", "tonya@blocmail.com")
+       check_entry(entry_three, "Tucker", "541-390-5325", "tucker@blocmail.com") 
      end
   end
 end
