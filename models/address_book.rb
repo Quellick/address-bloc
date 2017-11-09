@@ -35,6 +35,20 @@ class AddressBook
      end
     end
     
+   def iterative_search(name)
+      $i = 0
+      $num = entries.length
+      while $i < $num do
+        if name == entries[$i]
+          return entries[$i]
+        elsif name != entries[$i] && $i < $num
+          $i += 1;
+        elsif name != entries[$i] && $i >= $num
+          return nil
+        end
+      end          
+   end
+    
     # Search AddressBook for a specific entry by name
    def binary_search(name)
        # #1 we save the index of the leftmost item in the array in a variable named lower, and the index of rightmost item in the array in upper. 
