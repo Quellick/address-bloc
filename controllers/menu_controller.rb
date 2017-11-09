@@ -7,6 +7,10 @@
    def initialize
      @address_book = AddressBook.new
    end
+   
+   def nuke
+     address_book.entries.clear
+   end
  
    def main_menu
      # #2 display the main menu options to the command line.
@@ -15,7 +19,8 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Nuke it"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      # #3  retrieve user input from the command line using  gets. gets reads the next line from standard input.
@@ -40,6 +45,10 @@
          read_csv
          main_menu
        when 5
+         system "clear"
+         nuke
+         main_menu
+       when 6
          puts "Good-bye!"
          # #8 terminate the program using exit(0). 0 signals the program is exiting without an error
          exit(0)
@@ -60,11 +69,10 @@
      # #15 we call  entry_submenu to display a submenu for each entry.
        entry_submenu(entry)
      end
- 
      system "clear"
      puts "End of entries" 
    end
- 
+   
    def create_entry
      system "clear"
      puts "New AddressBloc Entry"
@@ -228,3 +236,4 @@
      end
    end
  end
+ 
